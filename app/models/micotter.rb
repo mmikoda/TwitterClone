@@ -1,0 +1,2 @@
+class Micotter < ApplicationRecord
+end
