@@ -5,7 +5,11 @@ class MicottersController < ApplicationController
     @micotter = Micotter.new
   end
   def create
-    Micotter.create(content: params[:micotter][:content])
+    Micotter.create(params[:micotter])
     redirect_to new_micotter_path
+  end
+  private
+  def micotter_params
+    params.require(:micotter).permit(:content)
   end
 end
