@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  get '/micotters', to: 'micotters#index'
+  resources :micotters
 end
