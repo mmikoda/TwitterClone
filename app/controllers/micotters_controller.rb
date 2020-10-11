@@ -1,5 +1,5 @@
 class MicottersController < ApplicationController
-  before_action :set_micotter, only: [:show, :edit, :update]
+  before_action :set_micotter, only: [:show, :edit, :update, :destroy]
   def index
     @micotters = Micotter.all
   end
@@ -23,10 +23,14 @@ class MicottersController < ApplicationController
   def update
     @micotter = Micotter.find(params[:id])
     if @micotter.update(micotter_params)
-      redirect_to micotters_path, notice: "ブログを編集しました！"
+      redirect_to micotters_path, notice: "ミコートを編集しました！"
     else
       render :edit
     end
+  end
+  def destroy
+    @micotter.destroy
+    redirect_to micotters_path, notice: "ミコートを削除しました！"
   end
   private
   def micotter_params

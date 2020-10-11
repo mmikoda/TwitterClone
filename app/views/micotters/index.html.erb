@@ -8,6 +8,7 @@
     <td><%= micotter.content %></td>
     <td><%= link_to '詳細を確認する', micotter_path(micotter.id) %></td>
     <td><%= link_to "ミコートを編集する", edit_micotter_path(micotter.id) %></td>
+    <td><%= link_to 'ミコートを削除する', micotter_path(micotter.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %></td>
   </tr>
 <% end %>
 </table>
