@@ -1,7 +1,17 @@
 <%= form_with(model: Micotter.new) do |form| %>
-    <div class="micotter_content">
-      <%= form.label :content %>
-      <%= form.text_field :content %>
+  <% if @micotter.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @micotter.errors.count %>件のエラーがあります。</h2>
+      <ul>
+      <% @micotter.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
     </div>
-    <%= form.submit %>
   <% end %>
+  <div class="micotter_content">
+    <%= form.label :content %>
+    <%= form.text_field :content %>
+  </div>
+  <%= form.submit %>
+<% end %>

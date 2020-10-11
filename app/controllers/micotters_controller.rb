@@ -6,13 +6,17 @@ class MicottersController < ApplicationController
     @micotter = Micotter.new
   end
   def create
-    Micotter.create(micotter_params)
-    redirect_to new_micotter_path
+    @micotter = Micotter.new(micotter_params)
+    if @micotter.save
+      redirect_to micotters_path, notice: "ミコートを作成しました"
+    else
+      render :new
+    end
+  end
   def show
     @micotter = Micotter.find(params[:id])
   end
-  end
-   private
+  private
   def micotter_params
     params.require(:micotter).permit(:content)
   end
