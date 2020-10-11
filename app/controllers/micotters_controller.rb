@@ -16,6 +16,17 @@ class MicottersController < ApplicationController
   def show
     @micotter = Micotter.find(params[:id])
   end
+  def edit
+    @micotter = Micotter.find(params[:id])
+  end
+  def update
+    @micotter = Micotter.find(params[:id])
+    if @micotter.update(micotter_params)
+      redirect_to micotters_path, notice: "ブログを編集しました！"
+    else
+      render :edit
+    end
+  end
   private
   def micotter_params
     params.require(:micotter).permit(:content)
