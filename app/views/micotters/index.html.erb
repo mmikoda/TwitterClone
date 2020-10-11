@@ -6,7 +6,9 @@
 <% @micotters.each do |micotter| %>
   <tr>
     <td><%= micotter.content %></td>
+    <td><%= link_to '詳細を確認する', micotter_path(micotter.id) %></td>
   </tr>
 <% end %>
 </table>
+<br>
 <%= link_to '新しくミコートを投稿する', new_micotter_path %>

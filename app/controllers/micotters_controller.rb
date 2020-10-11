@@ -8,6 +8,9 @@ class MicottersController < ApplicationController
   def create
     Micotter.create(micotter_params)
     redirect_to new_micotter_path
+  def show
+    @micotter = Micotter.find(params[:id])
+  end
   end
    private
   def micotter_params
