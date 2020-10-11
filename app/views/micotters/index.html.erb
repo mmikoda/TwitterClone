@@ -1,9 +1,10 @@
-<h1>ミコート一覧</h1>
+<header>
+  <h1>ミコッター</h1>
+</header>
+
+<%= link_to 'ミコートする', new_micotter_path %>
 <p><%= notice %></p>
 <table>
-  <tr>
-    <th>内容</th>
-  </tr>
 <% @micotters.each do |micotter| %>
   <tr>
     <td><%= micotter.content %></td>
@@ -14,4 +15,7 @@
 <% end %>
 </table>
 <br>
-<%= link_to 'ミコートする', new_micotter_path %>
+
+<footer>
+  <p>2020 DIC Kadai</p>
+</footer>
