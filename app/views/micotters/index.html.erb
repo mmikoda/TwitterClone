@@ -1,2 +1,12 @@
-<h1>Micotters#index</h1>
-<p>Find me in app/views/micotters/index.html.erb</p>
+<h1>ミコート一覧</h1>
+<table>
+  <tr>
+    <th>内容</th>
+  </tr>
+<% @micotters.each do |micotter| %>
+  <tr>
+    <td><%= micotter.content %></td>
+  </tr>
+<% end %>
+</table>
+<%= link_to '新しくミコートを投稿する', new_micotter_path %>
