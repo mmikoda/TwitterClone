@@ -1,4 +1,5 @@
 class MicottersController < ApplicationController
+  before_action :set_micotter, only: [:show, :edit, :update]
   def index
     @micotters = Micotter.all
   end
@@ -30,5 +31,8 @@ class MicottersController < ApplicationController
   private
   def micotter_params
     params.require(:micotter).permit(:content)
+  end
+  def set_micotter
+    @micotter = Micotter.find(params[:id])
   end
 end
