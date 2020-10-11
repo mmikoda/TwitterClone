@@ -1,4 +1,4 @@
-<%= form_with(model: @micotter, local: true) do |form| %>
+<%= form_with(model: @micotter, local: true ,url: choose_new_or_edit ) do |form| %>
   <% if @micotter.errors.any? %>
     <div id="error_explanation">
       <h2><%= @micotter.errors.count %>件のエラーがあります。</h2>

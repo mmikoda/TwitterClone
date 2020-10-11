@@ -8,20 +8,25 @@ class MicottersController < ApplicationController
   end
   def create
     @micotter = Micotter.new(micotter_params)
-    if @micotter.save
-      redirect_to micotters_path, notice: "ミコートを作成しました"
-    else
+    if params[:back]
       render :new
+    else
+      if @micotter.save
+        redirect_to micotters_path, notice: "ミコートを作成しました"
+      else
+        render :new
+      end
     end
   end
+  def confirm
+    @micotter = Micotter.new(micotter_params)
+    render :new if @micotter.invalid?
+  end
   def show
-    @micotter = Micotter.find(params[:id])
   end
   def edit
-    @micotter = Micotter.find(params[:id])
   end
   def update
-    @micotter = Micotter.find(params[:id])
     if @micotter.update(micotter_params)
       redirect_to micotters_path, notice: "ミコートを編集しました！"
     else
